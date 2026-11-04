@@ -1,0 +1,9 @@
+{
+  "_说明": "分区表示例。路径相对本文件所在目录。offset 必须 4KB 对齐。",
+  "chip": "W25Q64",
+  "port": "COM3",
+  "baud": 921600,
+  "partitions": [
+    { "name": "font",  "offset": "0x000000", "file": "font_gb2312.bin" }
+  ]
+}

@@ -1,0 +1,533 @@
+{
+  "_comment": "BGM_02/01 交换 → BGM_01(Uptown Funk)/BGM_02(Shake It Off) → FASHION.BMP → 42 组（BMP/WAV/TXT 三段同序）",
+  "card": {
+    "target": "D",
+    "label": "FASHION",
+    "sizeBytes": 0,
+    "clusterSectors": 8,
+    "volId": "6860B9C9",
+    "mbr": false
+  },
+  "build": {
+    "image": "./build/card.fat"
+  },
+  "manifest": null,
+  "files": [
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\Uptown Funk.wav",
+      "dst": "/BGM_01.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\Shake It Off.wav",
+      "dst": "/BGM_02.WAV"
+    },
+    {
+      "src": "C:/Users/mingbai/Documents/Code/QS_FPGA/FASHION.bmp",
+      "dst": "/FASHION.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\08_SHOE_01.bmp",
+      "dst": "/SHOE_01.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\01_SHOE_02.bmp",
+      "dst": "/SHOE_02.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\02_SHOE_03.bmp",
+      "dst": "/SHOE_03.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\09_SHOE_04.bmp",
+      "dst": "/SHOE_04.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\38_SHOE_05.bmp",
+      "dst": "/SHOE_05.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\06_SHOE_06.bmp",
+      "dst": "/SHOE_06.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\11_SHOE_07.bmp",
+      "dst": "/SHOE_07.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\10_SHOE_08.bmp",
+      "dst": "/SHOE_08.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\05_SHOE_10.bmp",
+      "dst": "/SHOE_09.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\12_SHOE_11.bmp",
+      "dst": "/SHOE_10.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\42_SHOE_12.bmp",
+      "dst": "/SHOE_11.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\07_SHOE_13.bmp",
+      "dst": "/SHOE_12.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\13_ACC_01.bmp",
+      "dst": "/ACC_01.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\14_ACC_02.bmp",
+      "dst": "/ACC_02.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\15_ACC_03.bmp",
+      "dst": "/ACC_03.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\16_ACC_04.bmp",
+      "dst": "/ACC_04.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\17_ACC_05.bmp",
+      "dst": "/ACC_05.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\18_ACC_06.bmp",
+      "dst": "/ACC_06.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\19_ACC_07.bmp",
+      "dst": "/ACC_07.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\20_BAG_01.bmp",
+      "dst": "/BAG_01.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\21_BAG_02.bmp",
+      "dst": "/BAG_02.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\40_BAG_03.bmp",
+      "dst": "/BAG_03.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\22_BAG_04.bmp",
+      "dst": "/BAG_04.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\23_COAT_01.bmp",
+      "dst": "/COAT_01.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\24_COAT_02.bmp",
+      "dst": "/COAT_02.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\39_COAT_03.bmp",
+      "dst": "/COAT_03.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\25_DRESS_01.bmp",
+      "dst": "/DRESS_01.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\26_DRESS_02.bmp",
+      "dst": "/DRESS_02.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\03_DRESS_03.bmp",
+      "dst": "/DRESS_03.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\27_DRESS_04.bmp",
+      "dst": "/DRESS_04.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\28_DRESS_05.bmp",
+      "dst": "/DRESS_05.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\29_PANTS_01.bmp",
+      "dst": "/PANTS_01.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\30_PANTS_02.bmp",
+      "dst": "/PANTS_02.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\31_PANTS_03.bmp",
+      "dst": "/PANTS_03.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\32_SPORT_01.bmp",
+      "dst": "/SPORT_01.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\04_SPORT_02.bmp",
+      "dst": "/SPORT_02.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\33_TOP_01.bmp",
+      "dst": "/TOP_01.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\41_TOP_02.bmp",
+      "dst": "/TOP_02.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\34_TOP_03.bmp",
+      "dst": "/TOP_03.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\35_TOP_04.bmp",
+      "dst": "/TOP_04.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\36_TOP_05.bmp",
+      "dst": "/TOP_05.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging_bmp\\37_TOP_07.bmp",
+      "dst": "/TOP_06.BMP"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_01.WAV",
+      "dst": "/SHOE_01.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_02.WAV",
+      "dst": "/SHOE_02.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_03.WAV",
+      "dst": "/SHOE_03.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_04.WAV",
+      "dst": "/SHOE_04.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_05.WAV",
+      "dst": "/SHOE_05.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_06.WAV",
+      "dst": "/SHOE_06.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_07.WAV",
+      "dst": "/SHOE_07.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_08.WAV",
+      "dst": "/SHOE_08.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_10.WAV",
+      "dst": "/SHOE_09.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_11.WAV",
+      "dst": "/SHOE_10.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_12.WAV",
+      "dst": "/SHOE_11.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_13.WAV",
+      "dst": "/SHOE_12.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\ACC_01.WAV",
+      "dst": "/ACC_01.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\ACC_02.WAV",
+      "dst": "/ACC_02.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\ACC_03.WAV",
+      "dst": "/ACC_03.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\ACC_04.WAV",
+      "dst": "/ACC_04.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\ACC_05.WAV",
+      "dst": "/ACC_05.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\ACC_06.WAV",
+      "dst": "/ACC_06.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\ACC_07.WAV",
+      "dst": "/ACC_07.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\BAG_01.WAV",
+      "dst": "/BAG_01.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\BAG_02.WAV",
+      "dst": "/BAG_02.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\BAG_03.WAV",
+      "dst": "/BAG_03.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\BAG_04.WAV",
+      "dst": "/BAG_04.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\COAT_01.WAV",
+      "dst": "/COAT_01.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\COAT_02.WAV",
+      "dst": "/COAT_02.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\COAT_03.WAV",
+      "dst": "/COAT_03.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\DRESS_01.WAV",
+      "dst": "/DRESS_01.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\DRESS_02.WAV",
+      "dst": "/DRESS_02.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\DRESS_03.WAV",
+      "dst": "/DRESS_03.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\DRESS_04.WAV",
+      "dst": "/DRESS_04.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\DRESS_05.WAV",
+      "dst": "/DRESS_05.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\PANTS_01.WAV",
+      "dst": "/PANTS_01.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\PANTS_02.WAV",
+      "dst": "/PANTS_02.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\PANTS_03.WAV",
+      "dst": "/PANTS_03.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SPORT_01.WAV",
+      "dst": "/SPORT_01.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SPORT_02.WAV",
+      "dst": "/SPORT_02.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\TOP_01.WAV",
+      "dst": "/TOP_01.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\TOP_02.WAV",
+      "dst": "/TOP_02.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\TOP_03.WAV",
+      "dst": "/TOP_03.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\TOP_04.WAV",
+      "dst": "/TOP_04.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\TOP_05.WAV",
+      "dst": "/TOP_05.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\TOP_07.WAV",
+      "dst": "/TOP_06.WAV"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_01.TXT",
+      "dst": "/SHOE_01.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_02.TXT",
+      "dst": "/SHOE_02.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_03.TXT",
+      "dst": "/SHOE_03.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_04.TXT",
+      "dst": "/SHOE_04.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_05.TXT",
+      "dst": "/SHOE_05.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_06.TXT",
+      "dst": "/SHOE_06.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_07.TXT",
+      "dst": "/SHOE_07.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_08.TXT",
+      "dst": "/SHOE_08.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_10.TXT",
+      "dst": "/SHOE_09.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_11.TXT",
+      "dst": "/SHOE_10.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_12.TXT",
+      "dst": "/SHOE_11.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SHOE_13.TXT",
+      "dst": "/SHOE_12.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\ACC_01.TXT",
+      "dst": "/ACC_01.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\ACC_02.TXT",
+      "dst": "/ACC_02.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\ACC_03.TXT",
+      "dst": "/ACC_03.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\ACC_04.TXT",
+      "dst": "/ACC_04.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\ACC_05.TXT",
+      "dst": "/ACC_05.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\ACC_06.TXT",
+      "dst": "/ACC_06.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\ACC_07.TXT",
+      "dst": "/ACC_07.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\BAG_01.TXT",
+      "dst": "/BAG_01.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\BAG_02.TXT",
+      "dst": "/BAG_02.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\BAG_03.TXT",
+      "dst": "/BAG_03.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\BAG_04.TXT",
+      "dst": "/BAG_04.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\COAT_01.TXT",
+      "dst": "/COAT_01.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\COAT_02.TXT",
+      "dst": "/COAT_02.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\COAT_03.TXT",
+      "dst": "/COAT_03.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\DRESS_01.TXT",
+      "dst": "/DRESS_01.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\DRESS_02.TXT",
+      "dst": "/DRESS_02.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\DRESS_03.TXT",
+      "dst": "/DRESS_03.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\DRESS_04.TXT",
+      "dst": "/DRESS_04.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\DRESS_05.TXT",
+      "dst": "/DRESS_05.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\PANTS_01.TXT",
+      "dst": "/PANTS_01.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\PANTS_02.TXT",
+      "dst": "/PANTS_02.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\PANTS_03.TXT",
+      "dst": "/PANTS_03.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SPORT_01.TXT",
+      "dst": "/SPORT_01.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\SPORT_02.TXT",
+      "dst": "/SPORT_02.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\TOP_01.TXT",
+      "dst": "/TOP_01.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\TOP_02.TXT",
+      "dst": "/TOP_02.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\TOP_03.TXT",
+      "dst": "/TOP_03.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\TOP_04.TXT",
+      "dst": "/TOP_04.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\TOP_05.TXT",
+      "dst": "/TOP_05.TXT"
+    },
+    {
+      "src": "C:\\Users\\mingbai\\Documents\\Code\\QS_FPGA\\audio_generator\\sdcard_writer\\staging\\TOP_07.TXT",
+      "dst": "/TOP_06.TXT"
+    }
+  ]
+}

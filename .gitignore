@@ -1,0 +1,102 @@
+# ============================================================
+# QS_FPGA —— 只保留人写的源码与构建必需资产
+# 综合 / 仿真 / 截图 / 镜像 / 日志 / 备份一律不入库
+# ============================================================
+
+# ---------- 安路 TD 综合 / 布局布线产物 ----------
+src/td_project/*_Runs/
+src/td_project/log/
+src/td_project/minidump-*.dmp
+src/td_project/a.out
+src/td_project/gate.qor
+src/td_project/probe_out.log
+src/td_project/debug_felib_orgmessage_list.log
+src/td_project/.lock.f
+src/td_project/.recent_user_depot.ini
+*.db
+*.dmp
+*.qor
+*.area
+*.timing
+*.status
+*.ts
+*.bid
+*.bit
+*.svf
+*.jed
+*.log
+*.logw
+
+# ---------- 仿真产物 ----------
+*.vvp
+*.vcd
+*.fst
+*.lxt
+*.lxt2
+*.dath
+*.ppm
+*.raw
+sim_out/
+tools/out/
+sim_data/*.img
+sim_data/*.map
+sim_data/*.vh
+sim_data/*.bmp
+
+# ---------- 源码目录里的临时产物 ----------
+src/user_source/hdl_source/**/out/
+*.bak
+*.bak_*
+*.orig
+*~
+*.py[cod]
+__pycache__/
+
+# ---------- 图片转换产物 ----------
+tools/convert/input_images/
+tools/convert/output_bmp/
+tools/convert/*.bmp
+tools/convert/*.png
+Font/font_preview.png
+Font/font_sample.png
+icons/_icon89_zoom.png
+icons/preview.html
+
+# ---------- 音频生成内容 ----------
+audio_generator/out/
+audio_generator/sdcard_writer/staging/
+audio_generator/sdcard_writer/staging_bmp/
+audio_generator/sdcard_writer/build/
+audio_generator/**/*.wav
+
+# ---------- FlashProgrammer 本地日志 / 导出 ----------
+FlashProgrammer/FPGA/log/
+FlashProgrammer/host/dump/
+
+# ---------- 备份 / 编辑器 / 系统垃圾 ----------
+.backup/
+.tmpdiff/
+.vscode/
+.idea/
+*.code-workspace
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
+.Spotlight-V100
+.Trashes
+
+# ============================================================
+# 明确保留（防止将来误伤；这些路径不应出现在上面的忽略规则里）
+# ------------------------------------------------------------
+# src/user_source/hdl_source/**/*.v, *.vh, *.vhd, *.py, *.ipc
+# src/user_source/constraints_source/*.adc, *.sdc, *.cwc
+# src/td_project/*.al, .design.prj, al_ip/*, out/back_annotation.adc
+# src/user_source/hdl_source/ref/*.v           等价测试参考 RTL
+# src/user_source/hdl_source/python/*.mif      ROM 初始化数据
+# src/user_source/hdl_source/APP/OSD/tools/*.hex, *.v
+# Font/*.bin, Font/ascii.png, Font/unifont-*.bmp
+# icons/*.bin, icons/png32/**, icons/*.svg
+# sim_data/sd.hex, sim_data/expect.txt          真卡 fixture
+# doc/TF卡图片/苹果_640x480_24bit_显示正常_工程适配版.bmp
+# ============================================================

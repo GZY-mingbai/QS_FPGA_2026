@@ -1,0 +1,18 @@
+{
+  "_说明": "分区表。路径相对本文件所在目录。offset 必须 4KB 对齐。",
+  "_布局校验": {
+    "fonts": "0x000000..0x03C7BF  (247744 B，字库)",
+    "beeps": "0x040000..0x04F5FF  (62976 B，提示音 3 段裸 PCM)",
+    "osd_bitmaps": "0x050000..0x05647F  (25728 B，导航图标 10 张 + PH1 logo，全部 RGB565 直出)",
+    "_结论": "三段互不重叠：0x3C7C0 < 0x40000 < 0x50000。",
+    "_旧 icons 分区": "0x03D000 的 4bpp 图标已作废（改成 RGB565 直出后不再读取），保留空位、不用烧。"
+  },
+  "chip": "W25Q64",
+  "port": "COM3",
+  "baud": 921600,
+  "partitions": [
+    { "name": "fonts",       "offset": "0x000000", "file": "font_gb2312.bin" },
+    { "name": "beeps",       "offset": "0x040000", "file": "../../tools/out/beep.bin", "size": "0x10000" },
+    { "name": "osd_bitmaps", "offset": "0x050000", "file": "../../icons/osd_bitmaps.bin", "size": "0x8000" }
+  ]
+}

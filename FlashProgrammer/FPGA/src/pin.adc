@@ -1,0 +1,44 @@
+#=============================================================================
+#  pin.adc —— FlashProgrammer 引脚约束
+#
+#  板卡：HX4S20C   主芯片：EG4S20BG256
+#  引脚来源：HX4S20 开发板手册（HDL 版 2410）
+#    · 50M 晶振      p.21
+#    · 串口 CH340    p.11「串口引脚分配表」
+#    · SPI FLASH     p.17「配置芯片引脚分配」（W25Q64，纯数据盘）
+#
+#  注意：板上另有一片 W25Q16 是 FPGA 固化配置用的，走专用引脚、不占 IO，
+#        与本工程无关，不需要（也不能）在这里约束。
+#
+#  语法： set_pin_assignment { 信号名 } { LOCATION = 引脚; IOSTANDARD = 电平; ... }
+#=============================================================================
+
+#-----------------------------------------------------------------------------
+#  系统时钟（50MHz 有源晶振）
+#-----------------------------------------------------------------------------
+set_pin_assignment	{ clk }	{ LOCATION = R7; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+
+#-----------------------------------------------------------------------------
+#  复位按键（低有效，按下复位；不按时靠内部上拉保持高）
+#-----------------------------------------------------------------------------
+set_pin_assignment	{ rst_n }	{ LOCATION = A2; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+
+#-----------------------------------------------------------------------------
+#  串口（CH340，Type-C 口）
+#    RXD = FPGA 接收端，TXD = FPGA 发送端
+#    如果实际跑不通，把这两个的 LOCATION 对调再试
+#-----------------------------------------------------------------------------
+set_pin_assignment	{ uart_rx }	{ LOCATION = F12; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ uart_tx }	{ LOCATION = D12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+
+#-----------------------------------------------------------------------------
+#  SPI FLASH（W25Q64，8MB）
+#    WP# / HOLD# 都是低有效 → 平时必须为高。输出脚也挂上拉：
+#    FPGA 上电配置期间引脚是高阻，靠上拉把这两个脚顶住，避免被误拉低。
+#-----------------------------------------------------------------------------
+set_pin_assignment	{ flash_cs_n }	{ LOCATION = P8; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment	{ flash_miso }	{ LOCATION = N8; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ flash_wp_n }	{ LOCATION = P9; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment	{ flash_hold_n }	{ LOCATION = R9; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment	{ flash_sclk }	{ LOCATION = M9; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment	{ flash_mosi }	{ LOCATION = P7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }

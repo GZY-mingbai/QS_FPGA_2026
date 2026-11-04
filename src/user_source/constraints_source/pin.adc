@@ -1,0 +1,175 @@
+#=============================================================================
+# 文件名   : pin.adc
+# 作用     : 【引脚约束文件】—— 告诉编译器"每个信号接到 FPGA 的哪个物理引脚"。
+#
+# 为什么必须有这个文件 ?
+#   Verilog 里写的 I_sys_clk、O_tmds_ch0_p 只是"逻辑名字"，
+#   FPGA 芯片上几百个引脚，编译器不知道你要用哪个。
+#   引脚约束就是把"名字"和"物理引脚号（如 R7、G5）"对应起来。
+#   ★ 引脚号写错的后果：轻则功能不对，重则烧坏芯片/外设，务必对照原理图填。★
+#
+# 语法说明（安路 TD 的约束格式）
+#   set_pin_assignment { 信号名 } { LOCATION = 引脚号; IOSTANDARD = 电平标准; ... }
+#     LOCATION      —— FPGA 封装上的引脚位置，如 R7
+#     IOSTANDARD    —— IO 电平标准：
+#                       LVCMOS33  = 3.3V 普通单端 IO
+#                       LVDS33    = 3.3V 低压差分对（HDMI 的 4 对线必须用这个！）
+#     DRIVESTRENGTH —— 驱动能力（mA），信号线长/负载重时适当调大
+#     PULLTYPE      —— 内部上下拉：NONE 不接、PULLUP 上拉（I2C 必须上拉）
+#
+# 【以 # 开头的行是注释，不生效】
+#   你会发现本文件里有一半被注释掉了 —— 那是历史遗留：
+#   同一块板子上做过多个不同例程，前后的引脚定义不同，只能保留一套。
+#
+# ★ 本工程实际生效的三组 ★
+#   ① HDMI 相关：HDMI_DDC_SCL/SDA、HDMI_CLK_P、HDMI_D0_P~D2_P
+#   ② 数码管 + 按键 + 开关 + SD 卡：seg_data/seg_sel、key1~key4、sw1~sw4、
+#      sd_dclk/miso/mosi/ncs
+#   ③ 用户 SPI Flash（字库）：flash_cs_n/sclk/mosi/miso/wp_n/hold_n
+#   其中 clk 接 R7（板上 50MHz 晶振）。
+#
+# 注意 ：下面被注释掉的 O_tmds_chX_p（G5/F1/E1/C3）
+#        和生效的 HDMI_D0_P~D2_P / HDMI_CLK_P 是同一个物理引脚，
+#        只是信号名不同 —— 说明顶层端口名已经改过了，别被两套名字混淆。
+#=============================================================================
+
+#set_pin_assignment	{ I_sys_clk }	{ LOCATION = R7; IOSTANDARD = LVCMOS33;}
+
+#set_pin_assignment	{ O_tmds_ch0_p }	{ LOCATION = G5; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+#set_pin_assignment	{ O_tmds_ch1_p }	{ LOCATION = F1; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+#set_pin_assignment	{ O_tmds_ch2_p }	{ LOCATION = E1; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+#set_pin_assignment	{ O_tmds_clk_p }	{ LOCATION = C3; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+
+#set_pin_assignment	{ I_i2s_BCLK }	{ LOCATION = J13; IOSTANDARD = LVCMOS33; PULLTYPE = NONE;} #J4 pin 7
+#set_pin_assignment	{ I_i2s_LRCK }	{ LOCATION = F13; IOSTANDARD = LVCMOS33; PULLTYPE = NONE;} #J4 pin 3
+#set_pin_assignment	{ I_i2s_DOUT }	{ LOCATION = L14; IOSTANDARD = LVCMOS33; PULLTYPE = NONE;} #J4 pin 9
+
+#set_pin_assignment	{ I_key_in }	{ LOCATION = A2; IOSTANDARD = LVCMOS33;}
+
+set_pin_assignment	{ HDMI_DDC_SCL }	{ LOCATION = P2; IOSTANDARD = LVCMOS33;DRIVESTRENGTH = 8; PULLTYPE = PULLUP;}
+set_pin_assignment	{ HDMI_DDC_SDA }	{ LOCATION = R2; IOSTANDARD = LVCMOS33;DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment	{ HDMI_CLK_P }	{ LOCATION = C3; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment	{ HDMI_D0_P }	{ LOCATION = G5; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment	{ HDMI_D1_P }	{ LOCATION = F1; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment	{ HDMI_D2_P }	{ LOCATION = E1; IOSTANDARD = LVDS33; PULLTYPE = NONE; }
+set_pin_assignment	{ clk }	{ LOCATION = R7; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+
+#-----------------------------------------------------------------------------
+#  4 个独立按键 KEY1~KEY4（板上丝印，按下 = 低）
+#
+#  引脚表：  KEY1=A2   KEY2=B2   KEY3=B1   KEY4=C1
+#
+#  ★ 和旧版的关系（只改名，没换脚）★
+#      A2  原来是 rst_n（复位按键）→ 现在叫 key1
+#           ⇒ 复位已经挪到 SW1(C8)，A2 这个键现在可以当普通按键用
+#      B2  原来叫 key1（一直没接功能）→ 现在叫 key2
+#      C1  原来叫 key2（冻结动画）    → 现在叫 key4，"按 C1 冻结动画"手感不变
+#      B1                             → 新增 key3
+#
+#  PULLTYPE = PULLUP：按键一端接地，另一端靠上拉保持高电平（松开 = 1）。
+#  板上若已有外部上拉，这里再开内部上拉也无害（只是并联一个弱上拉）。
+#-----------------------------------------------------------------------------
+set_pin_assignment	{ key1 }	{ LOCATION = A2; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ key2 }	{ LOCATION = B2; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ key3 }	{ LOCATION = B1; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ key4 }	{ LOCATION = C1; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+
+#-----------------------------------------------------------------------------
+#  ★ 2026-11-03：五向键（外接，Bank 1，按下 = 低；板上已有 10k 上拉 + 100nF）
+#  与 KEY1~KEY4 共用一套消抖（key_debounce9），再经 key_router 按上下文映射。
+#  ALS_AOUT(M10) 不建端口、不加约束：ADC 硬核按 CH1 隐式绑定。
+#-----------------------------------------------------------------------------
+set_pin_assignment	{ bt_ok }	{ LOCATION = F14; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ bt_up }	{ LOCATION = G16; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ bt_lt }	{ LOCATION = K15; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ bt_rt }	{ LOCATION = H15; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ bt_dn }	{ LOCATION = K16; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+
+#-----------------------------------------------------------------------------
+#  4 路乒乓开关 SW1~SW4（拨到 ON = 低）
+#
+#  引脚表：  SW1=C8   SW2=C7   SW3=C6   SW4=C5
+#
+#  ★ SW1(C8) 是【复位开关】，不是普通开关 ★
+#      · 拨到 ON  → C8 拉低 → rst_n = 0 → 整机复位（按住多久复位多久）
+#      · 拨回 OFF → 消抖计数器数满 ≈42ms 才释放复位（吃掉触点抖动）
+#      ⇒ 所以软件里 SW1 只剩"状态回读"意义，真正干活的是 SW2~SW4
+#
+#  ★ 极性未实测 ★ 这里按"内部上拉 + 拨到 ON 接地（= 0）"写。
+#      上板后用数码管第 4 位看：拨 SW2 → 应显示 2；若显示反了，
+#      在 top 里把 sw_level 取反即可（或把开关当"高有效"用）。
+#
+#  这些脚都不是 boot flash 的配置专用脚（配置脚是 T3/T10/P10 那一组），
+#  属于普通 IO，可以自由使用。
+#-----------------------------------------------------------------------------
+set_pin_assignment	{ sw1 }	{ LOCATION = C8; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ sw2 }	{ LOCATION = C7; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ sw3 }	{ LOCATION = C6; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ sw4 }	{ LOCATION = C5; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+
+#-----------------------------------------------------------------------------
+#  ★ build P：串口调试 TX（115200 8N1）
+#    和 FlashProgrammer 工程用的是同一块板、同一个脚（D12），
+#    直接接板上的 USB-串口就能在 PC 上看坏字样本。
+#-----------------------------------------------------------------------------
+set_pin_assignment	{ uart_tx }	{ LOCATION = D12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+#  ★ rst_n 不再是一个顶层端口 ★ 它由 sw1(C8) 经过"异步置位/同步释放"产生，
+#    约束见上面 SW1 那一行；原来 A2 的 rst_n 已被 key1 占用。
+set_pin_assignment	{ sd_dclk }	{ LOCATION = A14; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ sd_miso }	{ LOCATION = B14; IOSTANDARD = LVCMOS33; PULLTYPE = NONE; }
+set_pin_assignment	{ sd_mosi }	{ LOCATION = A13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ sd_ncs }	{ LOCATION = A12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[0] }	{ LOCATION = C15; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[1] }	{ LOCATION = C16; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[2] }	{ LOCATION = B6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[3] }	{ LOCATION = A5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[4] }	{ LOCATION = B5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[5] }	{ LOCATION = A8; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[6] }	{ LOCATION = A7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_data[7] }	{ LOCATION = A6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[0] }	{ LOCATION = E12; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[1] }	{ LOCATION = E10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[2] }	{ LOCATION = C13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[3] }	{ LOCATION = F10; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[4] }	{ LOCATION = E11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+set_pin_assignment	{ seg_sel[5] }	{ LOCATION = D11; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+#set_pin_assignment	{ vga_data[0] }	{ LOCATION = F6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+#set_pin_assignment	{ vga_data[10] }	{ LOCATION = L8; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+#set_pin_assignment	{ vga_data[11] }	{ LOCATION = E13; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+#set_pin_assignment	{ vga_data[1] }	{ LOCATION = E6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+#set_pin_assignment	{ vga_data[2] }	{ LOCATION = D6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+#set_pin_assignment	{ vga_data[3] }	{ LOCATION = D5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+#set_pin_assignment	{ vga_data[4] }	{ LOCATION = T5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+#set_pin_assignment	{ vga_data[5] }	{ LOCATION = P5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+#set_pin_assignment	{ vga_data[6] }	{ LOCATION = N5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+#set_pin_assignment	{ vga_data[7] }	{ LOCATION = N6; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+#set_pin_assignment	{ vga_data[8] }	{ LOCATION = R5; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+#set_pin_assignment	{ vga_data[9] }	{ LOCATION = L7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+#set_pin_assignment	{ vga_out_hs }	{ LOCATION = E7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+#set_pin_assignment	{ vga_out_vs }	{ LOCATION = F7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = NONE; }
+
+#-----------------------------------------------------------------------------
+#  用户 SPI Flash（W25Q64，8MB）—— 字库 font_gb2312.bin 存在这里
+#
+#  ★ 这不是 boot flash！★
+#    boot flash 走 MSPI 专用配置脚（T3/T10/P10 等），是 FPGA 上电配置链路的
+#    一部分，绑上去会直接破坏配置（下不进程序）。这里用的是**用户 Flash**，
+#    普通 IO，可以自由使用。
+#
+#  · flash_miso 是输入（Flash → FPGA），挂上拉；
+#  · WP# / HOLD# 都是低有效：模块内部恒输出 1，约束里再加一层上拉 —— 
+#    上电配置期间 FPGA 引脚是高阻，靠这个上拉把两个脚顶住，避免被误拉低。
+#  · 约束从 FlashProgrammer/FPGA/src/pin.adc 第 39~44 行原样照抄，保证两颗
+#    Flash 的物理连接一致。
+#-----------------------------------------------------------------------------
+set_pin_assignment	{ flash_cs_n }	{ LOCATION = P8; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment	{ flash_miso }	{ LOCATION = N8; IOSTANDARD = LVCMOS33; PULLTYPE = PULLUP; }
+set_pin_assignment	{ flash_wp_n }	{ LOCATION = P9; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment	{ flash_hold_n }	{ LOCATION = R9; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment	{ flash_sclk }	{ LOCATION = M9; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+set_pin_assignment	{ flash_mosi }	{ LOCATION = P7; IOSTANDARD = LVCMOS33; DRIVESTRENGTH = 8; PULLTYPE = PULLUP; }
+
+
+
+
+
